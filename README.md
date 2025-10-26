@@ -6,65 +6,43 @@ Abstract: *The early stage of architectural design plays a decisive role in dete
 
 
 *Figure 1) Examples of design schemes and corresponding annotations in the dataset*
-![img](assets/01.png)
+![img](figure/figure1.png)
 
 *Figure 2) EnergAI closed-loop iterative workflow of parametric input, LLM prompting, performance simulation, and semantic feedback.*
-![img](assets/05.png)
+![img](figure/figure2.png)
 
-*Figure 3) Scatter plot of annual EUI vs. annual energy cost for the human-designed model and the geometry-oriented LLM-designed model.*
-![img](assets/06.png)
+*Figure 3) Experimental site.*
+![img](figure/figure3.png)
 
-*Figure 4) Impact of climate information on EUI and energy cost.*
-![img](assets/02.png)
+*Figure 4) Scatter plot of annual EUI vs. annual energy cost for the human-designed model and the geometry-oriented LLM-designed model.*
+![img](figure/figure4.png)
 
-*Figure 5) Impact of design strategy on EUI.*
-![img](assets/03.png)
+*Figure 5) Impact of climate information on EUI and energy cost.*
+![img](figure/figure5.png)
 
-*Figure 6)  Impact of design strategy on energy cost.*
-![img](assets/03.png)
+*Figure 6) Impact of design strategy on EUI.*
+![img](figure/figure6.png)
 
-*Figure 7) Wordclouds.*
-![img](assets/03.png)
+*Figure 7)  Impact of design strategy on energy cost.*
+![img](figure/figure7.png)
 
-*Figure 8) Mean energy-saving rate versus the number of prompt dimensions. *
-![img](assets/03.png)
+*Figure 8) Wordclouds.*
+![img](figure/figure8.png)
+
+*Figure 9) Mean energy-saving rate versus the number of prompt dimensions. *
+![img](figure/figure9.png)
 
 
 
-## Dataset
+## Table
 
-*Realistic Image_completed.*
-![img](sample/001.jpg)
+*Parameter ranges and corresponding regulatory or empirical references defining the feasible constraint space Ω (Beijing, ASHRAE Zone 4)*
+![img](figure/table1.png)
 
-*Realistic Image_partial.*
-![img](sample/002.jpg)
+*Statistics of the influence of different prompt dimensions on EUI saving rate (EUI saving rate = (Baseline EUI – Current EUI) / Baseline EUI).*
+![img](figure/table2.png)
 
-*Perspective Image.*
-![img](sample/003.jpg)
 
-*Render Image.*
-![img](sample/004.jpg)
-
-*CAD Image.*
-![img](sample/005.jpg)
-
-*Pen drawing Image.*
-![img](sample/006.jpg)
-
-*Illustration Image.*
-![img](sample/007.jpg)
-
-*Watercolor Image.*
-![img](sample/008.jpg)
-
-*Book Image.*
-![img](sample/009.jpg)
-
-*Digital Model Image.*
-![img](sample/010.jpg)
-
-*Historical Document Image.*
-![img](sample/011.jpg)
 
 ## TODO List
 
@@ -78,9 +56,10 @@ Abstract: *The early stage of architectural design plays a decisive role in dete
 ## Inference
 
 ```
-python Segment_Any_Architecture_Facade_Sample.py --dataset ArchiMetricsNet --batch_size 32  --color_configuration 0 --model_path ckpts/exp/model10000.pt --num_samples 64
+python EnergAI_Infer.py --dataset LowEnergy-FormNet --model_path ckpts/EnergAI/model_final.pt --prompt_strategy performance-oriented
 ```
 ## Train
 
 ```
-python Segment_Any_Architecture_Facade_Train.py --dataset ArchiMetricsNet --batch_size 32  --color_configuration 0 
+python EnergAI_Train.py --dataset LowEnergy-FormNet --batch_size 32 --prompt_strategy geometry-oriented
+
