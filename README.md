@@ -62,4 +62,4 @@ python EnergAI_Infer.py --dataset LowEnergy-FormNet --model_path ckpts/EnergAI/m
 
 ```
 python EnergAI_Train.py --dataset LowEnergy-FormNet --batch_size 32 --prompt_strategy geometry-oriented
-
+```
